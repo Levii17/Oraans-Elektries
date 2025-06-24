@@ -1,16 +1,16 @@
 :root {
-    --primary: #0d9488;
-    --primary-dark: #0f766e;
-    --primary-light: #14b8a6;
-    --accent: #fbbf24;
+    --primary: #8BC53F;
+    --primary-dark: #4D6823;
+    --primary-light: #D7EDB2;
+    --accent: #007BFF;
     --dark: #0f172a;
     --dark-secondary: #1e293b;
     --gray: #64748b;
     --gray-light: #f1f5f9;
     --white: #ffffff;
     --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    --gradient-accent: linear-gradient(135deg, var(--accent) 0%, #f59e0b 100%);
     --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--primary-light) 100%);
     --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
     --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 }
@@ -224,9 +224,15 @@ header {
   color: var(--white);
   border: 2px solid var(--accent);
 }
+.cta-button.secondary:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
 .cta-button:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
+  color: var(--dark);
 }
 /* Stats Section */
 .stats {
@@ -378,7 +384,7 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3') center/cover;
+  background: url('https://img.freepik.com/free-photo/high-voltage-post-high-voltage-tower_1127-3231.jpg?uid=R186486732&ga=GA1.1.1623287776.1750693638&semt=ais_items_boosted&w=740') center/cover;
   opacity: 0.05;
   z-index: 0;
 }
@@ -464,7 +470,7 @@ header {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3') center/cover;
+  background: url('https://img.freepik.com/free-photo/lights-lifestyle-lifestyle-lights-pole-street_53876-42266.jpg?uid=R186486732&ga=GA1.1.1623287776.1750693638&semt=ais_items_boosted&w=740') center/cover;
   opacity: 0.1;
   z-index: 0;
 }
@@ -633,6 +639,7 @@ footer {
 }
 .social-links a:hover {
   background: var(--primary);
+  color: var(--dark);
   transform: translateY(-3px);
 }
 .footer-bottom {
@@ -642,37 +649,87 @@ footer {
   font-size: 0.95rem;
   opacity: 0.7;
 }
-/* Floating Buttons */
-.floating-btn {
+
+ /* Back to Top Button */
+ .top-chevron {
   position: fixed;
   bottom: 2rem;
-  width: 60px;
-  height: 60px;
+  right: 2rem;
+  background: var(--primary);
+  color: var(--dark);
   border-radius: 50%;
-  font-size: 1.5rem;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
   cursor: pointer;
-  box-shadow: var(--shadow-lg);
-  color: var(--white);
-  transition: var(--transition);
-  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.top-chevron i {
+  font-size: 1.2rem;
+}
+
+.top-chevron.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.top-chevron:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+}
+
+/* WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 999;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s;
   text-decoration: none;
 }
-.whatsapp-btn {
-  left: 2rem;
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
 }
-.top-btn {
-  right: 2rem;
-  background: var(--gradient);
+
+.whatsapp-float i {
+  font-size: 2rem;
 }
-.floating-btn:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+.whatsapp-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
 }
+
+a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary);
+  transform: scale(1.1rem);
+}
+
+
 /* Responsive Design */
 @media (max-width: 992px) {
 
